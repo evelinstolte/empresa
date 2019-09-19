@@ -96,4 +96,26 @@ public class DaoEmpresa {
             return null;
         }
 }
+        public static Empresa consultar(int primaryKey) {
+        //editar o SQL conforme a entidade
+        String sql = "SELECT social, nome, codigo FROM empresa WHERE codigo=?";
+        PreparedStatement ps;
+        try {
+            ps = conexao.Conexao.getConexao().prepareStatement(sql);
+            ps.setInt(1, primaryKey);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                Empresa objeto = new Empresa();
+                //definir um set para cada atributo da entidade, cuidado com o tipo
+                objeto.setSocial(rs.getString("social"));
+                objeto.setNome(rs.getString("nome"));
+                objeto.setCodigo(rs.getInt("codigo"));
+                
+                return objeto;//não mexa nesse, ele adiciona o objeto na lista
+            }
+        } catch (SQLException | ClassNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return null;
+    }
 }

@@ -10,11 +10,10 @@ package modelo;
  * @author Administrador
  */
 public class Empresa {
-    
-    
-   private String social;
-           private String nome;
-                   private int codigo;
+
+    private String social;
+    private String nome;
+    private Integer codigo;
 
     public String getSocial() {
         return social;
@@ -32,11 +31,11 @@ public class Empresa {
         this.nome = nome;
     }
 
-    public int getCodigo() {
+    public Integer getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(Integer codigo) {
         this.codigo = codigo;
     }
 
@@ -44,6 +43,5 @@ public class Empresa {
     public String toString() {
         return nome;
     }
-                   
-                   
+
 }
